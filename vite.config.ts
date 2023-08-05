@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 
 import { Plugin } from "vite";
 
-const vercelSkewHandler = (): Plugin => {
+const vercelDeploymentImports = (): Plugin => {
   let pluginEnabled = false;
   const deploymentId = process.env.VERCEL_DEPLOYMENT_ID;
   let clientEntry: string | undefined;
@@ -59,6 +59,6 @@ export default defineConfig({
     solid({
       adapter: vercel(),
     }),
-    vercelSkewHandler(),
+    vercelDeploymentImports(),
   ],
 });
